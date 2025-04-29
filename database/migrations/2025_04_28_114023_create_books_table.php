@@ -19,8 +19,14 @@ return new class extends Migration
             $table->year('published_year');
             $table->timestamps();
         
-            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('author_id')
+            ->references('id')
+            ->on('authors')
+            ->onDelete('cascade');
+            $table->foreign('category_id')
+            ->references('id')
+            ->on('categories')
+            ->onDelete('cascade');
         });
         
     }

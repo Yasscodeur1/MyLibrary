@@ -15,7 +15,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        return BookResource::collection(Book::all());
+        $books = Book::with(['author', 'category'])->get();
+        return BookResource::collection($books);
     }
 
     /**
@@ -30,9 +31,9 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
+    public function show($id)
     {
-        return new BookResource($book);
+        return response()->json(Book::find($id));
     }
 
     /**

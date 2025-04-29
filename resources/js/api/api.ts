@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Définir l'instance axios
 const api = axios.create({
-  baseURL: '/api', // La base pour tous tes appels
+  baseURL: 'http://127.0.0.1:8000/api', // La base pour tous tes appels
   headers: {
     'Content-Type': 'application/json',
   },
