@@ -16,11 +16,13 @@ return new class extends Migration
             $table->string('title');
             $table->unsignedBigInteger('author_id');
             $table->unsignedBigInteger('category_id');
-            $table->year('publication_year');
+            $table->year('published_year');
             $table->timestamps();
+        
             $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
+        
     }
     /**
      * Reverse the migrations.

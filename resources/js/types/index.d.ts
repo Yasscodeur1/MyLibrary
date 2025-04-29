@@ -41,3 +41,14 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+interface Book {
+    id?: number;
+    title: string;
+    author_id: number;
+    category_id: number;
+    published_year: number;
+  }
+  
+  export const createBook = (data: Book) => api.post('/books', data);
+  
