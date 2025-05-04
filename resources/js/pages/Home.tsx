@@ -26,8 +26,8 @@ const Home: React.FC = () => {
         setBooks(allBooks)
 
         // Calculer les statistiques
-        const authors = new Set(allBooks.map((book) => book.author.id))
-        const categories = new Set(allBooks.map((book) => book.category.id))
+        const authors = new Set(allBooks.map((book: Book) => book.author.id))
+        const categories = new Set(allBooks.map((book: Book) => book.category.id))
 
         setStats({
           totalBooks: allBooks.length,
@@ -190,7 +190,7 @@ const Home: React.FC = () => {
               </button>
             </div>
           ) : (
-            books.map((book) => <BookCard key={book.id} book={book} />)
+            books.map((book: Book) => <BookCard key={book.id} book={book} />)
           )}
         </div>
       </div>
