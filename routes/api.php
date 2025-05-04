@@ -11,4 +11,3 @@ Route::apiResource('books', BookController::class);
 Route::get('books/search', [BookController::class, 'search']);
 Route::apiResource('authors', AuthorController::class);
 Route::apiResource('categories', CategoryController::class);
-
