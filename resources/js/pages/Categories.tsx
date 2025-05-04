@@ -1,12 +1,12 @@
 "use client"
 
 import type React from "react"
-import { Link } from "@inertiajs/react"
+import { Link } from "lucide-react"
 import { useState, useEffect } from "react"
 import { Head } from "@inertiajs/react"
 import axios from "axios"
-import Navbar from "./NavBar"
-import CategoryCard from "./CategoryCard"
+import Navbar from "../components/NavBar"
+import CategoryCard from "../components/CategoryCard"
 
 interface Category {
   id: number
@@ -26,21 +26,25 @@ const Categories: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formError, setFormError] = useState<string | null>(null)
 
-  const fetchCategories = async () => {
-    setLoading(true)
-    try {
-      const response = await axios.get("myLibrairy/api/categories/")
-      setCategories(response.data.data)
-    } catch (err) {
-      setError("Erreur lors du chargement des catégories")
-    } finally {
-      setLoading(false)
-    }
-  }
-
   useEffect(() => {
-    fetchCategories()
-  }, [])
+    axios.get("http://localhost:8000/api/categories").then(res => setCategories(res.data.data));
+  }, []);
+
+  // const fetchCategories = async () => {
+  //   setLoading(true)
+  //   try {
+  //     const response = await axios.get("myLibrairy/api/categories/")
+  //     setCategories(response.data.data)
+  //   } catch (err) {
+  //     setError("Erreur lors du chargement des catégories")
+  //   } finally {
+  //     setLoading(false)
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   fetchCategories()
+  // }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -56,7 +60,7 @@ const Categories: React.FC = () => {
     setFormError(null)
 
     try {
-      await axios.post("/api/categories", formData)
+      await axios.post("http://localhost:8000/api/categories", formData)
       setIsAddModalOpen(false)
       setFormData({ name: "", description: "" })
       fetchCategories()

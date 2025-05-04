@@ -1,7 +1,8 @@
 import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Transition } from '@headlessui/react';
 import { Head, Link, useForm, usePage } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
+import { FormEventHandler, useEffect, useState } from 'react';
+import axios from 'axios';
 
 import DeleteUser from '@/components/delete-user';
 import HeadingSmall from '@/components/heading-small';
@@ -26,6 +27,8 @@ type ProfileForm = {
 
 export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: boolean; status?: string }) {
     const { auth } = usePage<SharedData>().props;
+    const [categories, setCategories] = useState([]);
+    const [message, setMessage] = useState('');
 
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm<Required<ProfileForm>>({
         name: auth.user.name,
@@ -39,6 +42,14 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
             preserveScroll: true,
         });
     };
+
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/categories")
+            .then(res => setCategories(res.data.data))
+            .catch((err) => {
+                setMessage("Erreur lors du chargement des catégories : " + err.message);
+            });
+    }, []);
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>

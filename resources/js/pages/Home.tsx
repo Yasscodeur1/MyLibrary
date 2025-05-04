@@ -7,7 +7,6 @@ import axios from "axios"
 import type { Book } from "../types"
 import Navbar from "../components/NavBar"
 import BookCard from "../components/BookCard"
-import AddBook from "./settings/AddBook"
 import AddAuthor from "./settings/AddAuthor"
 
 const Home: React.FC = () => {
