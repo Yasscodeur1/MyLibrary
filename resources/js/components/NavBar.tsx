@@ -24,13 +24,13 @@ const Navbar: React.FC = () => {
                 Livres
               </Link>
               <Link
-                href="/categories"
+                href="/Categories"
                 className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-blue-300"
               >
                 Catégories
               </Link>
               <Link
-                href="/authors"
+                href="/Authors"
                 className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-blue-300"
               >
                 Auteurs

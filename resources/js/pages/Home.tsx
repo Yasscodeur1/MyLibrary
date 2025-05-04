@@ -193,7 +193,7 @@ const Home: React.FC = () => {
               </button>
             </div>
           ) : (
-            books.map((book) => <BookCard key={book.id} book={book} />)
+            books.map((book: Book) => <BookCard key={book.id} book={book} />)
           )}
         </div>
       </div>
