@@ -40,7 +40,11 @@ const Navbar: React.FC = () => {
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
             <div className="ml-3 relative">
               <button className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+              <Link
+                href="/add-book-full"
+              >
                 Ajouter un livre
+              </Link>
               </button>
             </div>
           </div>
