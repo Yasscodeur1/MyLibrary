@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Book } from '../types';
+import { Book } from '../../types';
 
 const Books: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
