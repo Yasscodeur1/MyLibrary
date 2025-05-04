@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\AuthorController;
 use App\Http\Controllers\Api\CategoryController;
 
 Route::apiResource('books', BookController::class);
+Route::get('books/search', [BookController::class, 'search']);
 Route::apiResource('authors', AuthorController::class);
 Route::apiResource('categories', CategoryController::class);
 

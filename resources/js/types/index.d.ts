@@ -1,54 +1,32 @@
 import { LucideIcon } from 'lucide-react';
 import type { Config } from 'ziggy-js';
+import type { Route } from 'ziggy-js';
+import type { Route as ZiggyRoute } from 'ziggy-js';
 
-export interface Auth {
-    user: User;
-}
-
-export interface BreadcrumbItem {
-    title: string;
-    href: string;
-}
-
-export interface NavGroup {
-    title: string;
-    items: NavItem[];
-}
-
-export interface NavItem {
-    title: string;
-    href: string;
-    icon?: LucideIcon | null;
-    isActive?: boolean;
-}
-
-export interface SharedData {
-    name: string;
-    quote: { message: string; author: string };
-    auth: Auth;
-    ziggy: Config & { location: string };
-    sidebarOpen: boolean;
-    [key: string]: unknown;
-}
-
-export interface User {
+export interface Book {
     id: number;
-    name: string;
-    email: string;
-    avatar?: string;
-    email_verified_at: string | null;
+    title: string;
+    description: string | null;
+    publication_date: string | null;
+    author: Author;
+    category: Category;
     created_at: string;
     updated_at: string;
-    [key: string]: unknown; // This allows for additional properties...
 }
 
-interface Book {
-    id?: number;
-    title: string;
-    author_id: number;
-    category_id: number;
-    published_year: number;
-  }
-  
-  export const createBook = (data: Book) => api.post('/books', data);
-  
+export interface Author {
+    id: number;
+    name: string;
+    biography: string | null;
+    birth_date: string | null;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface Category {
+    id: number;
+    name: string;
+    description: string | null;
+    created_at: string;
+    updated_at: string;
+}

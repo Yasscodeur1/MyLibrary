@@ -14,7 +14,9 @@ class Book extends Model
         'title', 
         'author_id', 
         'category_id', 
-        'published_year'
+        'published_year',
+        'cover_image',
+        'summary'
     ];
     /**
      * Get the author that owns the book.

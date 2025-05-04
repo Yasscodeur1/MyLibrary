@@ -15,18 +15,18 @@ return [
 
     'paths' => ['api/*'],
 
-    'allowed_methods' => ['*'],
+    'allowed_methods' => ['*'],  // Permet toutes les méthodes HTTP (GET, POST, etc.)
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['*'],  // Permet toutes les origines],
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['*'],
+    'allowed_headers' => ['*'],  // Permet toutes les en-têtes
 
     'exposed_headers' => [],
 
-    'max_age' => 0,
+    'max_age' => 0,  // Délai pour la mise en cache des résultats des pré-vols CORS
 
-    'supports_credentials' => false,
+    'supports_credentials' => true,  // Permet l'envoi de cookies et autres informations d'authentification
 
 ];

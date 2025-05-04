@@ -17,15 +17,12 @@ class BookResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'published_year' => $this->published_year,
-            'author' => [
-                'id' => $this->author->id,
-                'name' => $this->author->name,
-            ],
-            'category' => [
-                'id' => $this->category->id,
-                'name' => $this->category->name,
-            ],
+            'description' => $this->description,
+            'publication_date' => $this->publication_date,
+            'author' => new AuthorResource($this->whenLoaded('author')),
+            'category' => new CategoryResource($this->whenLoaded('category')),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }

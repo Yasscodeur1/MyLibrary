@@ -22,10 +22,11 @@ class BookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string'],
-            'author' => ['required', 'unsignedBigInteger'],
-            'category' => ['required', 'unsignedBigInteger'],
-            'publication_year' => ['required', 'year']
+            'title' => ['required', 'string'],
+            'author_id' => ['required', 'exists:authors,id'],
+            'summary' => ['required', 'string'],
+            'category_id' => ['required', 'exists:categories,id'],
+            'publication_date' => ['required', 'date']
         ];
     }
 }
