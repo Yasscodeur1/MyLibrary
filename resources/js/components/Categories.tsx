@@ -5,8 +5,8 @@ import { Link } from "@inertiajs/react"
 import { useState, useEffect } from "react"
 import { Head } from "@inertiajs/react"
 import axios from "axios"
-import Navbar from "../components/NavBar"
-import CategoryCard from "../components/CategoryCard"
+import Navbar from "./NavBar"
+import CategoryCard from "./CategoryCard"
 
 interface Category {
   id: number

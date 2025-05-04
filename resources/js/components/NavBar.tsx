@@ -4,7 +4,6 @@ import type React from "react"
 import { useState } from "react"
 import { Link } from "@inertiajs/react"
 
-
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -31,7 +30,7 @@ const Navbar: React.FC = () => {
                 Catégories
               </Link>
               <Link
-                href="/authors"
+                href="/Authors"
                 className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-blue-300"
               >
                 Auteurs
