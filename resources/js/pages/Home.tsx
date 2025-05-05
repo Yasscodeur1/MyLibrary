@@ -7,7 +7,6 @@ import axios from "axios"
 import type { Book } from "../types"
 import Navbar from "../components/NavBar"
 import BookCard from "../components/BookCard"
-import AddAuthor from "./settings/AddAuthor"
 
 const Home: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([])
@@ -77,7 +76,6 @@ const Home: React.FC = () => {
 
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-blue-700 to-teal-600 text-white">
-      <AddAuthor/>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="md:w-2/3">
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Gestion de Bibliothèque</h1>

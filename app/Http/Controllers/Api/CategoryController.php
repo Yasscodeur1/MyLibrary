@@ -12,8 +12,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::with('books')->paginate(10);
-        return CategoryResource::collection($categories);
+        return CategoryResource::collection(Category::all());
     }
 
     public function store(CategoryRequest $request)

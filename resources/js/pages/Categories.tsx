@@ -30,21 +30,21 @@ const Categories: React.FC = () => {
     axios.get("http://localhost:8000/api/categories").then(res => setCategories(res.data.data));
   }, []);
 
-  // const fetchCategories = async () => {
-  //   setLoading(true)
-  //   try {
-  //     const response = await axios.get("myLibrairy/api/categories/")
-  //     setCategories(response.data.data)
-  //   } catch (err) {
-  //     setError("Erreur lors du chargement des catégories")
-  //   } finally {
-  //     setLoading(false)
-  //   }
-  // }
+  const fetchCategories = async () => {
+    setLoading(true)
+    try {
+      const response = await axios.get("http://localhost:8000/api/categories")
+      setCategories(response.data.data)
+    } catch (err) {
+      setError("Erreur lors du chargement des catégories")
+    } finally {
+      setLoading(false)
+    }
+  }
 
-  // useEffect(() => {
-  //   fetchCategories()
-  // }, [])
+  useEffect(() => {
+    fetchCategories()
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
