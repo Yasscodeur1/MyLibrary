@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/NavBar";
 import type { Book, Author, Category } from "../types";
+import BookCard from "@/components/BookCard";
 
 const Books = () => {
   const [books, setBooks] = useState<Book[]>([]);
@@ -72,7 +73,7 @@ const Books = () => {
     try {
       await axios.post("http://localhost:8000/api/books", formData);
       setIsAddModalOpen(false);
-      setFormData({ title: "", author_id: "", category_id: "" });
+      setFormData({ title: "", author_id: "", category_id: "", summary: "", publication_date: "" });
       fetchBooks();
     } catch (err: any) {
       setFormError("Erreur lors de l'ajout du livre : " + (err.response?.data?.message || err.message));
@@ -143,18 +144,7 @@ const Books = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {books.map((book) => (
-              <div key={book.id} className="bg-white rounded-lg shadow p-6">
-                <h3 className="text-xl text-gray-900 font-bold mb-2">{book.title}</h3>
-                <p className="text-gray-700 mb-1">
-                  <span className="font-semibold">Auteur :</span> {book.author?.name}
-                </p>
-                <p className="text-gray-700 mb-1">
-                  <span className="font-semibold">Catégorie :</span> {book.category?.name}
-                </p>
-                <p className="text-gray-500 text-sm">
-                  Ajouté le {new Date(book.created_at).toLocaleDateString()}
-                </p>
-              </div>
+            <BookCard key={book.id} book={book} onUpdate={fetchCategories} authors={[]} categories={[]} />
             ))}
           </div>
         )}
@@ -168,7 +158,7 @@ const Books = () => {
               <h3 className="text-xl font-bold text-gray-800 mb-4">Ajouter un livre</h3>
               {formError && <p className="text-red-600 mb-4">{formError}</p>}
               <form onSubmit={handleSubmit}>
-                @csrf
+                {/* @csrf */}
                 <div className="mb-4">
                   <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
                     Titre

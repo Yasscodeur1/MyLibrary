@@ -4,6 +4,7 @@ import type { Route } from 'ziggy-js';
 import type { Route as ZiggyRoute } from 'ziggy-js';
 
 export interface Book {
+    summary: string;
     id: number;
     title: string;
     description: string | null;
