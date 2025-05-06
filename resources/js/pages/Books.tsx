@@ -158,7 +158,6 @@ const Books = () => {
               <h3 className="text-xl font-bold text-gray-800 mb-4">Ajouter un livre</h3>
               {formError && <p className="text-red-600 mb-4">{formError}</p>}
               <form onSubmit={handleSubmit}>
-                {/* @csrf */}
                 <div className="mb-4">
                   <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
                     Titre
